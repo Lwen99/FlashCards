@@ -1,0 +1,48 @@
+﻿@model List<Cards>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">Practice with flash cards</h2>
+
+        </div>
+
+        <div class="col-6 text-end">
+            <a asp-controller="card" asp-action="Create" class="btn btn-primary">
+                Create a new card
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Question
+            </th>
+
+            <th>
+                Answer
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Cards cards in Model.OrderBy(u=>u.Id))
+        {
+            <tr>
+                <td>
+                    @cards.Question
+                </td>
+
+                <td>
+                    @cards.Answer
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table> 
+
