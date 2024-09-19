@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace FlashCards.Migrations
+namespace FlashCards.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class CardTable : Migration

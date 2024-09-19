@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlashCards.DataAccess\FlashCards.DataAccess.csproj" />
+    <ProjectReference Include="..\FlashCards.Models\FlashCards.Models.csproj" />
+  </ItemGroup>
+
 </Project>

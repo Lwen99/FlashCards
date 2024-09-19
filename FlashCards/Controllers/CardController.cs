@@ -1,6 +1,6 @@
-﻿using FlashCards.Data;
-using FlashCards.Models;
+﻿using FlashCards.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
+using FlashCards.Models;
 
 namespace FlashCards.Controllers
 {

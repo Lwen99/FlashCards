@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FlashCards.Models;
 
-namespace FlashCards.Data
+namespace FlashCards.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -19,18 +19,7 @@ namespace FlashCards.Data
                         Id = 1, Question = "What is 1+1", Answer = "2" 
                     }
 
-                    //new Cards
-                    //{
-                    //    Id = 1,
-                    //    Question = "What is 2+1",
-                    //    Answer = "3"
-                    //},
-                    //new Cards
-                    //{
-                    //    Id = 1,
-                    //    Question = "What is 3+1",
-                    //    Answer = "4"
-                    //}
+              
                 );
         }
     }
