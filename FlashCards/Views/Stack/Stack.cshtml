@@ -1,0 +1,56 @@
+﻿@model List<Stack>
+
+<div class="container">
+    <div class="container">
+        <div class="row pt-4 pb-3">
+            <div class="col-6">
+                <h2 class="text-primary">Choose a stack</h2>
+
+            </div>
+
+            <div class="col-6 text-end">
+                <a asp-controller="Stack" asp-action="Create" class="btn btn-primary">
+                    Create a stack
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        @foreach(Stack stack in Model)
+        {
+
+            <div class="border border-primary m-3" style="width:auto; height:auto">
+                <a asp-controller="Card" asp-action="Index" asp-route-id="@stack.StackId" class="text-decoration-none" >
+
+                <div class="">
+                    <form  asp-action="delete" method="post">
+                        <input  type="hidden" name="stackId" value="@stack.StackId"/>
+                        <button class="btn btn-primary btn-danger" type="submit">X</button>
+                    </form>
+                    <div class="text-center">
+
+                        <div class="mb-3 pt-5 text-primary h2">
+                            @stack.Name
+                        </div>
+                        <div class="mb-5 text-secondary h4">
+                            @stack.Description
+                        </div>
+                        <div class="h5">
+                            @stack.CreatedAt
+                        </div>
+                        <div class="h5">
+                            @stack.StackId
+                        </div>
+                    </div>
+                </div>
+               
+                </a>
+
+            </div>
+
+
+        }
+    </div>
+
+</div>

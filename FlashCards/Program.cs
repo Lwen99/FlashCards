@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // Add Db context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+     b => b.MigrationsAssembly("FlashCards.DataAccess")));
 
 
 var app = builder.Build();
@@ -29,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Card}/{action=Index}/{id?}");
+    pattern: "{controller=Stack}/{action=Stack}/{id?}");
 
 app.Run();

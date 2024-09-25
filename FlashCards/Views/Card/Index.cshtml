@@ -1,4 +1,5 @@
-﻿@model List<Cards>
+﻿@model CardDtoStackId
+
 
 <div class="container">
     <div class="row pt-4 pb-3">
@@ -6,11 +7,21 @@
             <h2 class="text-primary">Practice with flash cards</h2>
 
         </div>
-
-        <div class="col-6 text-end">
-            <a asp-controller="card" asp-action="Create" class="btn btn-primary">
+        <div class="col-6 d-flex justify-content-end">
+            <a asp-controller="stack" asp-action="stack" class="btn btn-secondary me-3">
+                Back to stacks
+            </a>
+            <a asp-controller="card" asp-action="Create" asp-route-id="@Model.StackId" class="btn btn-primary">
                 Create a new card
             </a>
+        </div>
+    </div>
+    <div class="row pt-4 pb-3">
+        <div class="col-12 text-end">
+            <a asp-controller="ReviewSession" asp-action="Index" asp-route-Id="@Model.StackId" class="btn btn-primary">
+                Practice
+            </a>
+            
         </div>
     </div>
 
@@ -19,10 +30,14 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
+            <th></th>
+            <th>
+                Id
+            </th>
+
             <th>
                 Question
             </th>
-
             <th>
                 Answer
             </th>
@@ -30,9 +45,19 @@
     </thead>
 
     <tbody>
-        @foreach (Cards cards in Model.OrderBy(u=>u.Id))
+        @foreach (CardDto cards in Model.CardDto)
         {
             <tr>
+                <td>
+                    <form asp-action="delete" method="post">
+                        <input type="hidden" name="CardId" value="@cards.CardId" />
+                        <button class="btn btn-primary btn-danger">X</button>
+                    </form>
+                </td>
+           
+                <td>
+                    @cards.DisplayCardId
+                </td>
                 <td>
                     @cards.Question
                 </td>

@@ -1,6 +1,14 @@
 ﻿@model Cards
 
+
 <form method="post">
+    <div style="display:none">
+        this is the @Model.StackId
+        <input asp-for="StackId" />
+    
+
+    </div>
+      
     <div class="border p-2 pt-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary">
@@ -27,7 +35,7 @@
                 </button>
             </div>
             <div class="col-6 col-md-3">
-                   <a asp-controller="card" asp-action="index" class="btn btn-secondary form-control">
+                   <a asp-controller="card" asp-action="index" asp-route-id="@Model.StackId" class="btn btn-secondary form-control">
                         Back to flash card
                     </a>
             </div>
